@@ -1,0 +1,1488 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foodie - Your Favorite Food Delivered in Minutes | Food Delivery</title>
+  <meta name="description" content="Order your favorite food from top restaurants with Foodie. Fast delivery, fresh meals, and crazy offers. Browse restaurants, explore menus, and get food delivered in minutes.">
+  <meta name="keywords" content="food delivery, restaurant delivery, online food order, fast food delivery, meal delivery service">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Foodie - Your Favorite Food Delivered in Minutes">
+  <meta property="og:description" content="Order your favorite food from top restaurants with Foodie. Fast delivery, fresh meals, and crazy offers.">
+  
+  <style>
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      line-height: 1.6;
+      color: #000000;
+      background-color: #ffffff;
+      overflow-x: hidden; /* Prevent horizontal scroll */
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    button {
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s ease;
+    }
+    
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    
+    /* Layout components */
+    .container {
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+    
+    .hero-section {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 500px; /* Reduced for better mobile viewing */
+      background-image: url('../assets/images/img_image_3.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: white;
+      padding: 20px;
+      width: 100%;
+      max-width: 1200px;
+    }
+    
+    .header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #ffffff;
+      padding: 12px 16px; /* Adjusted padding for mobile */
+      z-index: 3;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Added shadow for better visibility */
+    }
+    
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 16px; /* Reduced gap for mobile */
+    }
+    
+    .logo-img {
+      width: 40px; /* Smaller logo for mobile */
+      height: 40px;
+    }
+    
+    .logo-text {
+      font-size: 20px; /* Smaller text for mobile */
+      font-family: 'Pacifico', cursive;
+      font-weight: 400;
+      color: #e4130e;
+    }
+    
+    .nav-menu {
+      display: none;
+      gap: 34px;
+      align-items: center;
+    }
+    
+    .nav-item {
+      font-size: 18px; /* Smaller for better mobile navigation */
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 700;
+      color: #000000;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      padding: 8px 12px; /* Added padding for better touch targets */
+    }
+    
+    .nav-item.active {
+      color: #e4130e;
+    }
+    
+    .nav-item:hover {
+      color: #e4130e;
+    }
+    
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px; /* Reduced gap for mobile */
+    }
+    
+    .cart-icon {
+      width: 32px; /* Smaller for mobile */
+      height: 32px;
+    }
+    
+    .get-started-btn {
+      background-color: #e4130e;
+      color: #f5f5f5;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 14px; /* Smaller text for mobile */
+      font-weight: 400;
+      min-height: 44px; /* Minimum touch target size */
+    }
+    
+    .hamburger {
+      display: block;
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: #000000;
+      padding: 8px;
+      min-width: 44px; /* Minimum touch target size */
+      min-height: 44px;
+    }
+    
+    /* Hero content */
+    .hero-title {
+      font-size: 28px; /* Smaller for mobile readability */
+      line-height: 1.2;
+      margin-bottom: 30px; /* Reduced margin for mobile */
+      font-weight: 700;
+    }
+    
+    .hero-title .brand-text {
+      font-family: 'Pacifico', cursive;
+      font-weight: 400;
+    }
+    
+    .search-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .location-btn, .search-input, .search-btn {
+      padding: 16px 24px; /* Better mobile padding */
+      border-radius: 14px;
+      font-size: 16px; /* Standard mobile font size */
+      border: none;
+      min-height: 48px; /* Better touch target */
+    }
+    
+    .location-btn {
+      background-color: #ffffff;
+      color: #1e1e1e;
+      font-weight: 500;
+    }
+    
+    .search-input {
+      background-color: #ffffff;
+      color: #726e6e;
+      font-weight: 500;
+      width: 100%;
+    }
+    
+    .search-input::placeholder {
+      color: #999;
+      opacity: 1;
+    }
+    
+    .search-btn {
+      background-color: #e4130e;
+      color: #f5f5f5;
+      font-weight: 800;
+    }
+    
+    /* Section styles */
+    .section {
+      padding: 40px 16px; /* Reduced padding for mobile */
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 30px; /* Reduced margin for mobile */
+    }
+    
+    .section-tag {
+      font-size: 16px; /* Smaller for mobile */
+      font-weight: 500;
+      color: #e4130e;
+      margin-bottom: 12px; /* Reduced margin */
+    }
+    
+    .section-title {
+      font-size: 24px; /* Smaller for mobile readability */
+      font-weight: 700;
+      color: #000000;
+      line-height: 1.3; /* Better line spacing */
+    }
+    
+    /* Food categories */
+    .food-categories {
+      display: flex;
+      align-items: center;
+      gap: 12px; /* Reduced gap for mobile */
+      overflow-x: auto;
+      padding: 20px 0;
+      scroll-behavior: smooth; /* Smooth scrolling on mobile */
+      -webkit-overflow-scrolling: touch; /* iOS smooth scrolling */
+    }
+    
+    .food-categories::-webkit-scrollbar {
+      height: 0; /* Hide scrollbar on mobile */
+    }
+    
+    .category-nav {
+      background-color: #d9d9d9;
+      border-radius: 30px;
+      padding: 12px; /* Smaller padding for mobile */
+      flex-shrink: 0;
+      min-width: 44px;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .category-item {
+      width: 100px; /* Smaller for mobile */
+      height: 100px;
+      border-radius: 80px;
+      flex-shrink: 0;
+    }
+    
+    /* Restaurant grid */
+    .restaurant-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px; /* Reduced gap for mobile */
+      margin-top: 30px; /* Reduced margin */
+    }
+    
+    .restaurant-card {
+      background-color: #ffffff;
+      border-radius: 16px; /* Slightly smaller radius for mobile */
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.1); /* Softer shadow */
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .restaurant-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.15);
+    }
+    
+    .restaurant-image-container {
+      position: relative;
+      width: 100%;
+      height: 180px; /* Smaller for mobile */
+    }
+    
+    .restaurant-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 16px 16px 0px 0px;
+    }
+    
+    .discount-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background-color: rgba(0,0,0,0.8);
+      color: #ffffff;
+      padding: 6px 12px; /* Better mobile padding */
+      border-radius: 8px;
+      font-size: 14px; /* Smaller text for mobile */
+      font-weight: 700;
+      box-shadow: 0px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .restaurant-info {
+      padding: 16px;
+    }
+    
+    .restaurant-name {
+      font-size: 18px; /* Smaller for mobile */
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    
+    .rating-section {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 8px;
+    }
+    
+    .star-icon {
+      width: 16px; /* Smaller for mobile */
+      height: 16px;
+    }
+    
+    .rating-text {
+      font-size: 14px; /* Smaller for mobile */
+      font-weight: 600;
+      margin-left: 8px;
+    }
+    
+    .restaurant-description {
+      font-size: 14px;
+      font-style: italic;
+      color: #666;
+    }
+    
+    .browse-all-btn {
+      background-color: #e4130e;
+      color: #f5f5f5;
+      padding: 12px 24px; /* Better mobile padding */
+      border-radius: 8px;
+      font-size: 16px; /* Better mobile font size */
+      font-weight: 700;
+      margin: 30px auto; /* Reduced margin */
+      display: block;
+      min-height: 48px; /* Better touch target */
+      border: none;
+      cursor: pointer;
+    }
+    
+    /* Process section */
+    .process-section {
+      background-color: #f9f9f9;
+      padding: 40px 16px; /* Reduced padding for mobile */
+    }
+    
+    .process-steps {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px; /* Reduced gap for mobile */
+      margin-top: 30px;
+    }
+    
+    .process-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      max-width: 280px; /* Smaller max-width for mobile */
+    }
+    
+    .step-icon-container {
+      background-color: #fff1f2;
+      border-radius: 42px;
+      padding: 16px;
+      margin-bottom: 16px; /* Reduced margin */
+    }
+    
+    .step-icon {
+      width: 40px; /* Smaller for mobile */
+      height: 40px;
+    }
+    
+    .step-title {
+      font-size: 20px; /* Smaller for mobile */
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    
+    .step-description {
+      font-size: 14px; /* Smaller for mobile */
+      color: #666;
+      line-height: 1.5;
+    }
+    
+    /* Menu grid */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px; /* Reduced gap for mobile */
+      margin-top: 30px; /* Reduced margin */
+    }
+    
+    .menu-item {
+      background-color: #ffffff;
+      border-radius: 16px; /* Smaller radius for mobile */
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .menu-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.15);
+    }
+    
+    .menu-image {
+      width: 100%;
+      height: 160px; /* Smaller for mobile */
+      object-fit: cover;
+      border-radius: 16px 16px 0px 0px;
+    }
+    
+    .menu-info {
+      padding: 16px;
+    }
+    
+    .menu-title {
+      font-size: 16px; /* Smaller for mobile */
+      font-weight: 500;
+      color: #000000;
+      margin-bottom: 8px;
+    }
+    
+    .menu-description {
+      font-size: 13px; /* Smaller for mobile */
+      color: #666;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    
+    .menu-price {
+      font-size: 18px; /* Smaller for mobile */
+      font-weight: 600;
+      color: #e4130e;
+      margin-bottom: 12px; /* Reduced margin */
+    }
+    
+    .add-to-cart-btn {
+      background-color: #d9d9d9;
+      color: #000000;
+      padding: 8px 16px; /* Better mobile padding */
+      border-radius: 12px; /* Smaller radius */
+      font-size: 14px; /* Smaller font */
+      font-weight: 600;
+      width: 100%;
+      min-height: 44px; /* Better touch target */
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .add-to-cart-btn:hover {
+      background-color: #e4130e;
+      color: #ffffff;
+    }
+    
+    /* App download section */
+    .app-download-section {
+      position: relative;
+      background-color: #fff2f2;
+      padding: 40px 20px; /* Better mobile padding */
+      text-align: center;
+      overflow: hidden;
+    }
+    
+    .app-download-content {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .app-tag {
+      font-size: 16px; /* Smaller for mobile */
+      font-weight: 600;
+      color: #e4130e;
+      margin-bottom: 16px; /* Reduced margin */
+    }
+    
+    .app-title {
+      font-size: 22px; /* Smaller for mobile */
+      font-weight: 600;
+      color: #000000;
+      margin-bottom: 30px; /* Reduced margin */
+      line-height: 1.3; /* Better line spacing */
+      max-width: 300px; /* Limit width for better readability */
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .get-app-btn {
+      background-color: #e4130e;
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 16px; /* Better mobile font size */
+      font-weight: 600;
+      min-height: 48px; /* Better touch target */
+      border: none;
+      cursor: pointer;
+    }
+    
+    .app-decoration {
+      position: absolute;
+      top: 0;
+      width: 120px; /* Smaller for mobile */
+      height: 100%;
+      border-radius: 100px;
+      opacity: 0.7; /* Slightly transparent for mobile */
+    }
+    
+    .app-decoration.left {
+      left: -40px; /* Adjust position for mobile */
+    }
+    
+    .app-decoration.right {
+      right: -40px; /* Adjust position for mobile */
+    }
+    
+    /* Testimonials */
+    .testimonials-section {
+      padding: 40px 16px; /* Reduced padding for mobile */
+    }
+    
+    .testimonials-slider {
+      display: flex;
+      gap: 16px; /* Reduced gap for mobile */
+      overflow-x: auto;
+      margin-top: 30px; /* Reduced margin */
+      padding: 20px 0;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    .testimonials-slider::-webkit-scrollbar {
+      height: 0;
+    }
+    
+    .testimonial-card {
+      background-color: #ffffff;
+      border: 1px solid #e0e0e0; /* Softer border for mobile */
+      border-radius: 16px; /* Smaller radius for mobile */
+      padding: 20px; /* Reduced padding */
+      min-width: 280px; /* Smaller min-width for mobile */
+      flex-shrink: 0;
+      text-align: center;
+      box-shadow: 0px 2px 8px rgba(0,0,0,0.1); /* Softer shadow */
+    }
+    
+    .testimonial-avatar {
+      width: 80px; /* Smaller for mobile */
+      height: 80px;
+      border-radius: 50px;
+      margin: 0 auto 12px; /* Reduced margin */
+    }
+    
+    .testimonial-name {
+      font-size: 18px; /* Smaller for mobile */
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    
+    .testimonial-rating {
+      display: flex;
+      justify-content: center;
+      gap: 2px; /* Reduced gap */
+      margin-bottom: 12px; /* Reduced margin */
+    }
+    
+    .testimonial-text {
+      font-size: 13px; /* Smaller for mobile */
+      line-height: 1.4;
+      color: #666;
+    }
+    
+    .slider-controls {
+      display: flex;
+      justify-content: center; /* Centered for mobile */
+      align-items: center;
+      gap: 16px; /* Added gap between controls */
+      margin-top: 30px; /* Reduced margin */
+    }
+    
+    .slider-btn {
+      width: 44px; /* Better touch target */
+      height: 44px;
+      border-radius: 22px;
+      background-color: #d9d9d9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      color: #333;
+      transition: all 0.3s ease;
+    }
+    
+    .slider-btn.active {
+      background-color: #e4130e;
+      color: #ffffff;
+    }
+    
+    /* Footer */
+    .footer {
+      background-color: #000000;
+      color: #ffffff;
+      padding: 40px 16px; /* Reduced padding for mobile */
+    }
+    
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      gap: 30px; /* Reduced gap for mobile */
+    }
+    
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 16px; /* Reduced gap */
+    }
+    
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 16px; /* Reduced gap for mobile */
+    }
+    
+    .footer-logo-img {
+      width: 50px; /* Smaller for mobile */
+      height: 50px;
+    }
+    
+    .footer-logo-text {
+      font-size: 20px; /* Smaller for mobile */
+      font-family: 'Pacifico', cursive;
+      color: #e4130e;
+    }
+    
+    .footer-description {
+      font-size: 14px; /* Smaller for mobile */
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.5;
+    }
+    
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 24px; /* Reduced gap for mobile */
+    }
+    
+    .footer-column {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .footer-column-title {
+      font-size: 16px; /* Smaller for mobile */
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      margin-bottom: 12px; /* Reduced margin */
+    }
+    
+    .footer-link {
+      font-size: 14px; /* Smaller for mobile */
+      font-family: 'Poppins', sans-serif;
+      color: #ffffff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      padding: 4px 0; /* Added padding for better touch targets */
+    }
+    
+    .footer-link:hover {
+      color: #e4130e;
+    }
+    
+    /* Mobile Navigation Enhancement */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: rgba(0,0,0,0.9);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+    }
+    
+    .mobile-nav.active {
+      display: flex;
+    }
+    
+    .mobile-nav .nav-item {
+      color: #ffffff;
+      font-size: 24px;
+      padding: 16px;
+      min-height: 48px;
+      min-width: 200px;
+      text-align: center;
+    }
+    
+    .mobile-nav-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-size: 32px;
+      padding: 8px;
+      min-width: 48px;
+      min-height: 48px;
+    }
+    
+    /* Responsive media queries */
+    @media (min-width: 480px) {
+      .hero-title {
+        font-size: 36px;
+      }
+      
+      .section-title {
+        font-size: 28px;
+      }
+      
+      .restaurant-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      
+      .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      
+      .category-item {
+        width: 110px;
+        height: 110px;
+      }
+    }
+    
+    @media (min-width: 640px) {
+      .container {
+        padding: 0 24px;
+      }
+      
+      .header {
+        padding: 16px 24px;
+      }
+      
+      .logo-img {
+        width: 45px;
+        height: 45px;
+      }
+      
+      .logo-text {
+        font-size: 22px;
+      }
+      
+      .hero-title {
+        font-size: 48px;
+      }
+      
+      .search-section {
+        flex-direction: row;
+        gap: 12px;
+      }
+      
+      .search-input {
+        flex: 1;
+      }
+      
+      .section {
+        padding: 50px 24px;
+      }
+      
+      .section-title {
+        font-size: 32px;
+      }
+      
+      .restaurant-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      
+      .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      
+      .process-steps {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 20px;
+      }
+      
+      .process-step {
+        max-width: 45%;
+      }
+      
+      .footer-links {
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      
+      .footer-column {
+        flex: 1;
+        min-width: 200px;
+      }
+    }
+    
+    @media (min-width: 768px) {
+      .hamburger {
+        display: none;
+      }
+      
+      .nav-menu {
+        display: flex;
+      }
+      
+      .header {
+        padding: 18px 32px;
+      }
+      
+      .logo-img {
+        width: 50px;
+        height: 50px;
+      }
+      
+      .logo-text {
+        font-size: 24px;
+      }
+      
+      .cart-icon {
+        width: 40px;
+        height: 40px;
+      }
+      
+      .get-started-btn {
+        font-size: 16px;
+        padding: 10px 16px;
+      }
+      
+      .hero-title {
+        font-size: 64px;
+      }
+      
+      .section {
+        padding: 60px 32px;
+      }
+      
+      .section-title {
+        font-size: 40px;
+      }
+      
+      .restaurant-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+      
+      .menu-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+      
+      .process-steps {
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+      }
+      
+      .process-step {
+        max-width: 280px;
+      }
+      
+      .app-title {
+        font-size: 32px;
+        max-width: 500px;
+      }
+      
+      .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+      
+      .footer-brand {
+        flex: 1;
+        max-width: 400px;
+      }
+      
+      .footer-links {
+        flex: 2;
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: nowrap;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .container {
+        padding: 0 32px;
+      }
+      
+      .hero-title {
+        font-size: 80px;
+      }
+      
+      .restaurant-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+      }
+      
+      .menu-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 32px;
+      }
+      
+      .restaurant-image-container {
+        height: 240px;
+      }
+      
+      .menu-image {
+        height: 180px;
+      }
+      
+      .testimonials-slider {
+        justify-content: center;
+        gap: 72px;
+      }
+      
+      .testimonial-card {
+        min-width: 358px;
+      }
+      
+      .app-decoration {
+        width: 200px;
+      }
+      
+      .app-decoration.left {
+        left: 0;
+      }
+      
+      .app-decoration.right {
+        right: 0;
+      }
+    }
+    
+    @media (min-width: 1280px) {
+      .container {
+        max-width: 1200px;
+      }
+      
+      .hero-title {
+        font-size: 85px;
+      }
+      
+      .restaurant-image-container {
+        height: 280px;
+      }
+    }
+    
+    /* Performance and Accessibility Improvements */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+    
+    /* Dark mode support for mobile devices */
+    @media (prefers-color-scheme: dark) {
+      .restaurant-card,
+      .menu-item,
+      .testimonial-card {
+        border: 1px solid #333;
+      }
+      
+      .section-tag {
+        color: #ff6b6b;
+      }
+    }
+    
+    /* High contrast mode support */
+    @media (prefers-contrast: high) {
+      .restaurant-card,
+      .menu-item,
+      .testimonial-card {
+        border: 2px solid #000;
+      }
+      
+      .discount-badge {
+        background-color: #000;
+        border: 2px solid #fff;
+      }
+    }
+  </style>
+  
+  <script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Ffooddeliv7240back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.9"></script>
+  <script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
+  </head>
+<body>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-overlay"></div>
+      
+      <!-- Header -->
+      <header class="header">
+        <div class="logo-section">
+          <img src="../assets/images/img_image_1.png" alt="Foodie logo" class="logo-img">
+          <span class="logo-text">Foodie</span>
+        </div>
+        
+        <nav class="nav-menu" role="navigation">
+          <a href="#" class="nav-item active" role="menuitem">Home</a>
+          <a href="#" class="nav-item" role="menuitem">About Us</a>
+          <a href="#" class="nav-item" role="menuitem">Checkout</a>
+          <a href="#" class="nav-item" role="menuitem">Restaurants</a>
+          <a href="#" class="nav-item" role="menuitem">Contact Us</a>
+        </nav>
+        
+        <div class="header-actions">
+          <img src="../assets/images/img_image_4.png" alt="Shopping cart" class="cart-icon">
+          <button class="get-started-btn">Get Started</button>
+          <button class="hamburger">☰</button>
+        </div>
+      </header>
+      
+      <!-- Hero Content -->
+      <div class="hero-content">
+        <h1 class="hero-title">
+          <span>Your</span> <span class="brand-text">Favorite food</span> <span>Delivered in minutes!</span>
+        </h1>
+        
+        <div class="search-section">
+          <button class="location-btn">Accra, Ghana</button>
+          <input type="text" class="search-input" placeholder="Search restaurants....">
+          <button class="search-btn">Search</button>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Food Categories Section -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">FOOD CATEGORIES</div>
+          <h2 class="section-title">Explore by Food Items</h2>
+        </div>
+        
+        <div class="food-categories">
+          <button class="category-nav">‹</button>
+          <img src="../assets/images/img_ellipse_1.png" alt="Food category" class="category-item">
+          <img src="../assets/images/img_ellipse_1.png" alt="Food category" class="category-item">
+          <img src="../assets/images/img_ellipse_1.png" alt="Food category" class="category-item">
+          <img src="../assets/images/img_ellipse_1.png" alt="Food category" class="category-item">
+          <img src="../assets/images/img_ellipse_1.png" alt="Food category" class="category-item">
+          <img src="../assets/images/img_ellipse_1.png" alt="Food category" class="category-item">
+        </div>
+      </div>
+    </section>
+    
+    <!-- Popular Restaurants Section -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">FEATURED PLACES</div>
+          <h2 class="section-title">Popular Restaurants</h2>
+        </div>
+        
+        <div class="restaurant-grid">
+          <article class="restaurant-card">
+            <div class="restaurant-image-container">
+              <img src="../assets/images/img_rectangle_6.png" alt="GrillCraft Kitchen restaurant food" class="restaurant-image">
+              <span class="discount-badge">50% OFF</span>
+            </div>
+            <div class="restaurant-info">
+              <h3 class="restaurant-name">GrillCraft Kitchen</h3>
+              <div class="rating-section">
+                <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+                <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+                <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+                <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+                <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+                <span class="rating-text">4.8(2.3k)</span>
+              </div>
+              <p class="restaurant-description">Chicken .Healthy. High Protein</p>
+            </div>
+          </article>
+          
+          <article class="restaurant-card">
+            <div class="restaurant-image-container">
+              <img src="../assets/images/img_rectangle_7.png" alt="GrillCraft Kitchen restaurant food" class="restaurant-image">
+              <span class="discount-badge">50% OFF</span>
+            </div>
+            <div class="restaurant-info">
+              <h3 class="restaurant-name">GrillCraft Kitchen</h3>
+              <div class="rating-section">
+                <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+                <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+                <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+                <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+                <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+                <span class="rating-text">4.8(2.3k)</span>
+              </div>
+              <p class="restaurant-description">Chicken .Healthy. High Protein</p>
+            </div>
+          </article>
+          
+          <article class="restaurant-card">
+            <div class="restaurant-image-container">
+              <img src="../assets/images/img_rectangle_8.png" alt="GrillCraft Kitchen restaurant food" class="restaurant-image">
+              <span class="discount-badge">50% OFF</span>
+            </div>
+            <div class="restaurant-info">
+              <h3 class="restaurant-name">GrillCraft Kitchen</h3>
+              <div class="rating-section">
+                <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+                <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+                <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+                <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+                <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+                <span class="rating-text">4.8(2.3k)</span>
+              </div>
+              <p class="restaurant-description">Chicken .Healthy. High Protein</p>
+            </div>
+          </article>
+          
+          <article class="restaurant-card">
+            <div class="restaurant-image-container">
+              <img src="../assets/images/img_rectangle_6.png" alt="GrillCraft Kitchen restaurant food" class="restaurant-image">
+              <span class="discount-badge">50% OFF</span>
+            </div>
+            <div class="restaurant-info">
+              <h3 class="restaurant-name">GrillCraft Kitchen</h3>
+              <div class="rating-section">
+                <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+                <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+                <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+                <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+                <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+                <span class="rating-text">4.8(2.3k)</span>
+              </div>
+              <p class="restaurant-description">Chicken .Healthy. High Protein</p>
+            </div>
+          </article>
+          
+          <article class="restaurant-card">
+            <div class="restaurant-image-container">
+              <img src="../assets/images/img_rectangle_7.png" alt="GrillCraft Kitchen restaurant food" class="restaurant-image">
+              <span class="discount-badge">50% OFF</span>
+            </div>
+            <div class="restaurant-info">
+              <h3 class="restaurant-name">GrillCraft Kitchen</h3>
+              <div class="rating-section">
+                <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+                <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+                <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+                <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+                <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+                <span class="rating-text">4.8(2.3k)</span>
+              </div>
+              <p class="restaurant-description">Chicken .Healthy. High Protein</p>
+            </div>
+          </article>
+          
+          <article class="restaurant-card">
+            <div class="restaurant-image-container">
+              <img src="../assets/images/img_rectangle_8.png" alt="GrillCraft Kitchen restaurant food" class="restaurant-image">
+              <span class="discount-badge">50% OFF</span>
+            </div>
+            <div class="restaurant-info">
+              <h3 class="restaurant-name">GrillCraft Kitchen</h3>
+              <div class="rating-section">
+                <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+                <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+                <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+                <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+                <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+                <span class="rating-text">4.8(2.3k)</span>
+              </div>
+              <p class="restaurant-description">Chicken .Healthy. High Protein</p>
+            </div>
+          </article>
+        </div>
+        
+        <button class="browse-all-btn">Browse All</button>
+      </div>
+    </section>
+    
+    <!-- Process Section -->
+    <section class="process-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">OUR PROCESS</div>
+          <h2 class="section-title">Popular Restaurants</h2>
+        </div>
+        
+        <div class="process-steps">
+          <div class="process-step">
+            <div class="step-icon-container">
+              <img src="../assets/images/img_image_36.png" alt="Browse restaurants icon" class="step-icon">
+            </div>
+            <h3 class="step-title">Browse Restaurants</h3>
+            <p class="step-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna.</p>
+          </div>
+          
+          <div class="process-step">
+            <div class="step-icon-container">
+              <img src="../assets/images/img_image_35.png" alt="Browse restaurants icon" class="step-icon">
+            </div>
+            <h3 class="step-title">Browse Restaurants</h3>
+            <p class="step-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna.</p>
+          </div>
+          
+          <div class="process-step">
+            <div class="step-icon-container">
+              <img src="../assets/images/img_image_37.png" alt="Browse restaurants icon" class="step-icon">
+            </div>
+            <h3 class="step-title">Browse Restaurants</h3>
+            <p class="step-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna.</p>
+          </div>
+          
+          <div class="process-step">
+            <div class="step-icon-container">
+              <img src="../assets/images/img_image_38.png" alt="Browse restaurants icon" class="step-icon">
+            </div>
+            <h3 class="step-title">Browse Restaurants</h3>
+            <p class="step-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Menu Section -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">OUR MENU</div>
+          <h2 class="section-title">Popular Restaurants</h2>
+        </div>
+        
+        <div class="menu-grid">
+          <article class="menu-item">
+            <img src="../assets/images/img_rectangle_6.png" alt="Margherita Pizza" class="menu-image">
+            <div class="menu-info">
+              <h3 class="menu-title">Margherita Pizza</h3>
+              <p class="menu-description">Classic tomato, mozzarella & basil on a thin crust.</p>
+              <div class="menu-price">$9.99</div>
+              <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+          </article>
+          
+          <article class="menu-item">
+            <img src="../assets/images/img_rectangle_6.png" alt="Margherita Pizza" class="menu-image">
+            <div class="menu-info">
+              <h3 class="menu-title">Margherita Pizza</h3>
+              <p class="menu-description">Classic tomato, mozzarella & basil on a thin crust.</p>
+              <div class="menu-price">$9.99</div>
+              <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+          </article>
+          
+          <article class="menu-item">
+            <img src="../assets/images/img_rectangle_6.png" alt="Margherita Pizza" class="menu-image">
+            <div class="menu-info">
+              <h3 class="menu-title">Margherita Pizza</h3>
+              <p class="menu-description">Classic tomato, mozzarella & basil on a thin crust.</p>
+              <div class="menu-price">$9.99</div>
+              <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+          </article>
+          
+          <article class="menu-item">
+            <img src="../assets/images/img_rectangle_6.png" alt="Margherita Pizza" class="menu-image">
+            <div class="menu-info">
+              <h3 class="menu-title">Margherita Pizza</h3>
+              <p class="menu-description">Classic tomato, mozzarella & basil on a thin crust.</p>
+              <div class="menu-price">$9.99</div>
+              <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+          </article>
+          
+          <article class="menu-item">
+            <img src="../assets/images/img_rectangle_6.png" alt="Margherita Pizza" class="menu-image">
+            <div class="menu-info">
+              <h3 class="menu-title">Margherita Pizza</h3>
+              <p class="menu-description">Classic tomato, mozzarella & basil on a thin crust.</p>
+              <div class="menu-price">$9.99</div>
+              <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+          </article>
+          
+          <article class="menu-item">
+            <img src="../assets/images/img_rectangle_6.png" alt="Margherita Pizza" class="menu-image">
+            <div class="menu-info">
+              <h3 class="menu-title">Margherita Pizza</h3>
+              <p class="menu-description">Classic tomato, mozzarella & basil on a thin crust.</p>
+              <div class="menu-price">$9.99</div>
+              <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+          </article>
+          
+          <article class="menu-item">
+            <img src="../assets/images/img_rectangle_6.png" alt="Margherita Pizza" class="menu-image">
+            <div class="menu-info">
+              <h3 class="menu-title">Margherita Pizza</h3>
+              <p class="menu-description">Classic tomato, mozzarella & basil on a thin crust.</p>
+              <div class="menu-price">$9.99</div>
+              <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+          </article>
+          
+          <article class="menu-item">
+            <img src="../assets/images/img_rectangle_6.png" alt="Margherita Pizza" class="menu-image">
+            <div class="menu-info">
+              <h3 class="menu-title">Margherita Pizza</h3>
+              <p class="menu-description">Classic tomato, mozzarella & basil on a thin crust.</p>
+              <div class="menu-price">$9.99</div>
+              <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    
+    <!-- App Download Section -->
+    <section class="app-download-section">
+      <img src="../assets/images/img_ellipse_14.png" alt="Decorative food image" class="app-decoration left">
+      <img src="../assets/images/img_ellipse_15.png" alt="Decorative food image" class="app-decoration right">
+      
+      <div class="app-download-content">
+        <div class="app-tag">DOWNLOAD APP</div>
+        <h2 class="app-title">Ready to Order? Download the App and Unlock Crazy Offers!</h2>
+        <button class="get-app-btn">Get the App</button>
+      </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">TESTIMONIALS</div>
+          <h2 class="section-title">What Our Food Lovers Say</h2>
+        </div>
+        
+        <div class="testimonials-slider">
+          <article class="testimonial-card">
+            <img src="../assets/images/img_ellipse_16.png" alt="Sarah M. profile picture" class="testimonial-avatar">
+            <h3 class="testimonial-name">Sarah M.</h3>
+            <div class="testimonial-rating">
+              <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+              <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+              <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+              <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+              <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+            </div>
+            <p class="testimonial-text">I've tried several food delivery apps, but this one stands out. The interface is clean, it's super easy to reorder my favorites, and the delivery time was faster than expected!</p>
+          </article>
+          
+          <article class="testimonial-card">
+            <img src="../assets/images/img_ellipse_16.png" alt="Sarah M. profile picture" class="testimonial-avatar">
+            <h3 class="testimonial-name">Sarah M.</h3>
+            <div class="testimonial-rating">
+              <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+              <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+              <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+              <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+              <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+            </div>
+            <p class="testimonial-text">I've tried several food delivery apps, but this one stands out. The interface is clean, it's super easy to reorder my favorites, and the delivery time was faster than expected!</p>
+          </article>
+          
+          <article class="testimonial-card">
+            <img src="../assets/images/img_ellipse_16.png" alt="Sarah M. profile picture" class="testimonial-avatar">
+            <h3 class="testimonial-name">Sarah M.</h3>
+            <div class="testimonial-rating">
+              <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+              <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+              <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+              <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+              <img src="../assets/images/img_image_5.png" alt="Star rating" class="star-icon">
+            </div>
+            <p class="testimonial-text">I've tried several food delivery apps, but this one stands out. The interface is clean, it's super easy to reorder my favorites, and the delivery time was faster than expected!</p>
+          </article>
+        </div>
+        
+        <div class="slider-controls">
+          <button class="slider-btn">‹</button>
+          <button class="slider-btn active">›</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="../assets/images/img_image_1.png" alt="Foodie logo" class="footer-logo-img">
+            <span class="footer-logo-text">Foodie</span>
+          </div>
+          <p class="footer-description">Bringing delicious food from your favorite restaurants straight to your doorstep. Fast, fresh, and reliable delivery-anytime you crave.</p>
+        </div>
+        
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4 class="footer-column-title">Quick Links</h4>
+            <a href="#" class="footer-link">About Us</a>
+            <a href="#" class="footer-link">Restaurants</a>
+            <a href="#" class="footer-link">Order Now</a>
+            <a href="#" class="footer-link">Download App</a>
+            <a href="#" class="footer-link">Contact Us</a>
+          </div>
+          
+          <div class="footer-column">
+            <h4 class="footer-column-title">Company</h4>
+            <a href="#" class="footer-link">Help & Support</a>
+            <a href="#" class="footer-link">Partner with Us</a>
+            <a href="#" class="footer-link">Ride with Us</a>
+            <a href="#" class="footer-link">Terms & Conditions</a>
+            <a href="#" class="footer-link">Privacy Policy</a>
+          </div>
+          
+          <div class="footer-column">
+            <h4 class="footer-column-title">Get in Touch</h4>
+            <a href="tel:+11234567890" class="footer-link">+1123-456-7890</a>
+            <a href="mailto:hello@foodie.com" class="footer-link">hello@foodie.com</a>
+            <address class="footer-link">123 Flavor Street, Suite 500<br>Brooklyn, NY 11201, USA.</address>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
